@@ -2,6 +2,7 @@ import unittest
 from selenium import webdriver
 from login_page import LoginPage
 from inventory_page import InventoryPage
+from reporte_html import GeneradorHTMLTestRunner
 
 class TestSauceDemo(unittest.TestCase):
 
@@ -42,6 +43,5 @@ class TestSauceDemo(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == "__main__":
-    with open("reporte_pruebas.txt", "w", encoding="utf-8") as archivo:
-        runner = unittest.TextTestRunner(stream=archivo, verbosity=2)
-        unittest.main(testRunner=runner, exit=False)
+    runner = GeneradorHTMLTestRunner(archivo_html="reporte_pruebas.html", verbosity=2)
+    unittest.main(testRunner=runner, exit=False)
